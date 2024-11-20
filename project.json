@@ -1,0 +1,92 @@
+{
+  "name": "RPA_19",
+  "projectId": "c4b79b34-e843-4e51-b9ed-91196f271600",
+  "description": "빈 프로세스",
+  "main": "연습4.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[2.24.0-preview]",
+    "UiPath.Mail.Activities": "[1.23.11]",
+    "UiPath.System.Activities": "[24.11.0-preview]",
+    "UiPath.Testing.Activities": "[24.10.0]",
+    "UiPath.UIAutomation.Activities": "[24.11.1-preview]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "24.10.4.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "CSharp",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "fbae1515-9a15-4bc1-b5fb-9040a5d99ddd",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "array배열.xaml",
+      "uniqueId": "341998e3-ed41-4b57-8099-1427a622e205",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "연습1.xaml",
+      "uniqueId": "ffbcd25a-82fb-4444-9798-41b333c97927",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "연습2.xaml",
+      "uniqueId": "58e5d47d-0c00-4684-98bc-92ca1080ffb9",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "연습3.xaml",
+      "uniqueId": "2e9a6157-5786-47ad-88cf-c176bb27d70a",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "연습4.xaml",
+      "uniqueId": "c5c3d0c1-ba53-4f1b-82e0-169d7bad77f8",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

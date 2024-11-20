@@ -1,0 +1,43 @@
+Sub DB_CNN()
+
+    Dim conn_db As ADODB.Connection
+    Dim conn_rs As ADODB.Recordset
+    
+    Set conn_db = New ADODB.Connection
+    Set conn_rs = New ADODB.Recordset
+    
+    Dim conn_string, sql_string As String
+    Dim r_count, r_sum As Double
+    
+    conn_string = "Provider=SQLOLEDB;Data Source=DESKTOP-49D0SN8\SQLEXPRESS;Initial Catalog=AdventureWorks2022;USER ID=DBmaster;PASSWORD=412asxcv!"
+    conn_db.Open conn_string
+    
+    sql_string = "select DATEPART(YY, OrderDate) as YY, DATEPART(MM, OrderDate) as MM , sum(totaldue) as allsum from Sales.SalesOrderHeader group by DATEPART(YY, OrderDate), DATEPART(MM, OrderDate) order by YY, MM"
+    conn_rs.Open sql_string, conn_db, 1
+    r_count = 1
+    r_sum = 0
+    Do Until conn_rs.EOF
+        
+        r_count = r_count + 1
+        Worksheets("sheet1").Cells(r_count, 2).Value = conn_rs("YY")
+        Worksheets("sheet1").Cells(r_count, 3).Value = conn_rs("MM")
+        Worksheets("sheet1").Cells(r_count, 4).Value = conn_rs("allsum")
+        
+        If conn_rs("MM") > 3 And conn_rs("YY") = 2014 Then
+            r_sum = conn_rs("allsum")
+        End If
+        
+        conn_rs.MoveNext
+            
+    Loop
+    
+    Worksheets("sheet1").Cells(r_count, 5).Value = r_sum / 3
+    
+    conn_rs.Close
+    Set conn_rs = Nothing
+    
+    conn_db.Close
+    Set conn_db = Nothing
+    
+
+End Sub

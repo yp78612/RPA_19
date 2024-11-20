@@ -1,0 +1,163 @@
+Sub test_select()
+
+Dim in_value As Integer
+
+in_value = Worksheets("sheet1").Cells(2, 2).Value
+
+Select Case in_value
+
+Case 1 To 10
+Worksheets("sheet1").Cells(3, 3).Value = "1부터 10사이에 존재하는 값입니다."
+Case 11 To 20
+Worksheets("sheet1").Cells(3, 3).Value = "11부터 20사이에 존재하는 값입니다."
+Case 21 To 30
+Worksheets("sheet1").Cells(3, 3).Value = "21부터 30사이에 존재하는 값입니다."
+Case 31 To 40
+Worksheets("sheet1").Cells(3, 3).Value = "31부터 40사이에 존재하는 값입니다."
+Case 41 To 50
+Worksheets("sheet1").Cells(3, 3).Value = "41부터 50사이에 존재하는 값입니다."
+Case 51 To 60
+Worksheets("sheet1").Cells(3, 3).Value = "51부터 60사이에 존재하는 값입니다."
+Case 61 To 70
+Worksheets("sheet1").Cells(3, 3).Value = "61부터 70사이에 존재하는 값입니다."
+Case 71 To 80
+Worksheets("sheet1").Cells(3, 3).Value = "70부터 80사이에 존재하는 값입니다."
+Case 81 To 90
+Worksheets("sheet1").Cells(3, 3).Value = "81부터 90사이에 존재하는 값입니다."
+Case 91 To 100
+Worksheets("sheet1").Cells(3, 3).Value = "91부터 100사이에 존재하는 값입니다."
+
+End Select
+
+
+
+End Sub
+
+Sub test_for()
+
+Dim i As Integer
+Dim sum As Integer
+Dim sum2 As Integer
+
+For i = 2 To 100 Step 2
+
+sum = sum + i
+
+Next
+
+For i = 1 To 9
+sum2 = i * 2
+Worksheets("sheet1").Cells(i + 3, 3).Value = "2 X " & i & " = " & sum2
+
+Next
+
+Worksheets("sheet1").Cells(3, 3).Value = sum
+
+End Sub
+
+Sub test_fer()
+
+Dim i As Double
+Dim d(8) As Double
+Dim d2(8) As Double
+Dim a As Double
+Dim b As Double
+i = 0
+For i = 1 To 8
+
+d(i) = Worksheets("sheet2").Cells(i + 4, 3).Value
+d2(i) = Worksheets("sheet2").Cells(i + 4, 5).Value
+
+Next
+
+For i = 1 To 8
+
+Worksheets("sheet2").Cells(i + 4, 4).Value = d(i) / 20 * 30
+Worksheets("sheet2").Cells(i + 4, 6).Value = Round(((d(i) / 20 * 30) / d2(i)) * 100) & "%"
+If Round(((d(i) / 20 * 30) / d2(i)) * 100) > 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 초과 달성"
+ElseIf Round(((d(i) / 20 * 30) / d2(i)) * 100) = 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 달성"
+ElseIf Round(((d(i) / 20 * 30) / d2(i)) * 100) < 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 미 달성"
+End If
+Next
+
+For i = 1 To 8
+
+a = Worksheets("sheet2").Cells(i + 4, 3).Value
+b = Worksheets("sheet2").Cells(i + 4, 5).Value
+Worksheets("sheet2").Cells(i + 4, 4).Value = a / 20 * 30
+Worksheets("sheet2").Cells(i + 4, 6).Value = Round(((a / 20 * 30) / b) * 100) & "%"
+If Round(((a / 20 * 30) / b) * 100) > 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 초과 달성"
+ElseIf Round(((a / 20 * 30) / b) * 100) = 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 달성"
+ElseIf Round(((a / 20 * 30) / b) * 100) < 100 Then
+Worksheets("sheet2").Cells(i + 4, 7).Value = "목표치 미 달성"
+End If
+Next
+
+End Sub
+
+
+Sub test()
+
+Dim i, j As Integer
+Dim str_a As String
+Dim arry(45) As String
+
+For i = 1 To 9
+For j = 1 To 45
+arry(j - 1) = Worksheets("sheet1").Cells(j, i).Value
+Next
+
+
+If arry(0) = "제품코드" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 2).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "제품명" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 3).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "수량" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 4).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "대리점코드" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 5).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "대리점명" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 6).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "지역" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 7).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "요청일" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 8).Value = arry(j - 1)
+Next
+ElseIf arry(0) = "배송일" Then
+For j = 1 To 45
+Worksheets("sheet2").Cells(j, 9).Value = arry(j - 1)
+Next
+End If
+Next
+
+str_a = Replace(Date, "-", "")
+
+For i = 1 To 44
+
+If i < 10 Then
+Worksheets("Sheet2").Cells(i + 1, 1).Value = str_a & "_00" & i
+Else
+Worksheets("Sheet2").Cells(i + 1, 1).Value = str_a & "_0" & i
+End If
+
+Next
+
+End Sub

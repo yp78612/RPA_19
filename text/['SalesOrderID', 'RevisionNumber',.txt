@@ -1,0 +1,7 @@
+['SalesOrderID', 'RevisionNumber', 'OrderDate', 'DueDate', 'ShipDate', 'Status', 'OnlineOrderFlag', 'SalesOrderNumber', 'PurchaseOrderNumber', 'AccountNumber', 'CustomerID', 'SalesPersonID', 'TerritoryID', 'BillToAddressID', 'ShipToAddressID', 'ShipMethodID', 'CreditCardID', 'CreditCardApprovalCode', 'CurrencyRateID', 'SubTotal', 'TaxAmt', 'Freight', 'TotalDue', 'Comment', 'rowguid', 'ModifiedDate']
+
+Sales.SalesOrderDetail의 열 해석
+['SalesOrderID', 'SalesOrderDetailID', 'CarrierTrackingNumber', 'OrderQty', 'ProductID', 'SpecialOfferID', 'UnitPrice', 'UnitPriceDiscount', 'LineTotal', 'rowguid', 'ModifiedDate']
+
+
+select yyyy, mm, sum(TotalDue) total, sum(salescount) count from (select DATEPART(YY, OrderDate) yyyy, DATEPART(MM, OrderDate) mm, SalesOrderID, TotalDue from Sales.SalesOrderHeader) t1, (select SalesOrderID, COUNT(SalesOrderID) salescount from Sales.SalesOrderDetail group by SalesOrderID) t2 where t1.SalesOrderID = t2.SalesOrderID group by yyyy, mm order by yyyy, mm

@@ -1,0 +1,64 @@
+   SQL_STRING2 = "insert into [dbo].[HR_Family_info] ([E_ID],[F_Name],[F_Ref],[F_HP]) values"
+    
+    flus = 0
+    
+    For i = 0 To 2
+        
+        If Not IsEmpty(nvar2(flus)) Then
+        
+            SQL_STRING2_2 = SQL_STRING2 & "('" & nvar(2) & "', '" & nvar2(flus) & "', '" & nvar2(flus + 1) & "', '" & nvar2(flus + 2) & "')"
+        
+
+            Conn_DB.Execute SQL_STRING2_2
+        Else
+            break
+        
+        End If
+        
+        flus = flus + 3
+        
+    Next
+    
+    SQL_STRING3 = "insert into [dbo].[HR_Edu_inf] ([E_ID],[Ei_gate],[Ei_school],[Ei_magor],[Ei_grad]) values"
+    
+    flus = 0
+    
+    For i = 0 To 2
+        
+        If Not IsEmpty(nvar3(flus)) Then
+        
+            SQL_STRING3_3 = SQL_STRING3 & "('" & nvar(2) & "', '" & nvar3(flus) & "', '" & nvar3(flus + 1) & "', '" & nvar3(flus + 2) & "', '" & nvar3(flus + 3) & "')"
+        
+
+            Conn_DB.Execute SQL_STRING2_2
+        Else
+            break
+        
+        End If
+        
+        flus = flus + 4
+        
+    Next
+    
+    SQL_STRING4 = "insert into [dbo].[HR_Family_info] ([E_ID],[C_Sdate],[C_Edate],[C_ComNam],[C_Dept],[C_Position],[C_Titile]) values"
+    
+    flus = 0
+    
+    For i = 0 To 2
+        
+        If Not IsEmpty(nvar2(flus)) Then
+        
+            SQL_STRING4_4 = SQL_STRING4 & "('" & nvar(2) & "', '" & nvar4(flus) & "', '" & nvar4(flus + 1) & "', '" & nvar4(flus + 2) & nvar4(flus + 3) & "', '" & nvar4(flus + 4) & "')"
+        
+
+            Conn_DB.Execute SQL_STRING2_2
+        Else
+            break
+        
+        End If
+        
+        flus = flus + 5
+        
+    Next
+    
+    
